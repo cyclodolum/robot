@@ -106,10 +106,22 @@ void loop() {
   if (ir_val == 0xFFA857) { //+
       left_speed += incv;
       right_speed += incv;
+      if (left_speed > 255) {
+       left_speed = 255; 
+      }
+      if (right_speed > 255) {
+       right_speed = 255; 
+      }
     }
     else if (ir_val == 0xFFE01F) { //-
       left_speed -= incv;
       right_speed -= incv;
+      if (left_speed < 0) {
+       left_speed = 0; 
+      }
+      if (right_speed < 0) {
+       right_speed = 0; 
+      }
     }
     else if (ir_val == 0xFF6897) { //0
       left_speed = 0;
